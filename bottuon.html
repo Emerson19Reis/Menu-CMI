@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tradutor de Sistema</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meu Sistema</h1>
+    <div class="dropdown">
+        <button class="dropbtn">Traduzir</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="traduzirTexto('espanholArgentino')">Espanhol Argentino</a>
+            <a href="#" onclick="traduzirTexto('espanholParaguaio')">Espanhol Paraguaio</a>
+            <a href="#" onclick="traduzirTexto('espanholUruguaio')">Espanhol Uruguaio</a>
+            <a href="#" onclick="traduzirTexto('espanholColombiano')">Espanhol Colombiano</a>
+            <a href="#" onclick="traduzirTexto('portuguesBrasileiro')">Português Brasileiro</a>
+        </div>
+    </div>
+    <p id="texto">Este é um exemplo de texto em português.</p>
+
+    <script>
+        // Função para traduzir o texto para o idioma selecionado
+        function traduzirTexto(idioma) {
+            var texto = document.getElementById("texto").textContent;
+            var traducoes = {
+                "espanholArgentino": {
+                    "Este é um exemplo de texto em português.": "Este es un ejemplo de texto en español argentino."
+                },
+                "espanholParaguaio": {
+                    "Este é um exemplo de texto em português.": "Este es un ejemplo de texto en español paraguayo."
+                },
+                "espanholUruguaio": {
+                    "Este é um exemplo de texto em português.": "Este es un ejemplo de texto en español uruguayo."
+                },
+                "espanholColombiano": {
+                    "Este é um exemplo de texto em português.": "Este es un ejemplo de texto en español colombiano."
+                },
+                "portuguesBrasileiro": {
+                    "Este é um exemplo de texto em português.": "Este é um exemplo de texto em português brasileiro."
+                }
+            };
+
+            var textoTraduzido = traducoes[idioma] && traducoes[idioma][texto];
+
+            if (textoTraduzido) {
+                document.getElementById("texto").textContent = textoTraduzido;
+            } else {
+                alert("Tradução não encontrada para o idioma selecionado.");
+            }
+        }
+    </script>
+</body>
+</html>
