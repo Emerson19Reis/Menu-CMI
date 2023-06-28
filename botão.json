@@ -1,0 +1,179 @@
+{
+    "id": 572,
+    "gridPos": {
+      "h": 4,
+      "w": 2,
+      "x": 6,
+      "y": 30
+    },
+    "type": "stat",
+    "datasource": {
+      "type": "mssql",
+      "uid": "zavTC70Gk"
+    },
+    "pluginVersion": "9.2.2",
+    "maxDataPoints": 100,
+    "links": [],
+    "description": "",
+    "fieldConfig": {
+      "defaults": {
+        "mappings": [
+          {
+            "options": {
+              "0": {
+                "color": "dark-red",
+                "index": 9,
+                "text": "Sem Dados"
+              },
+              "ABASTECENDO": {
+                "color": "dark-yellow",
+                "index": 6
+              },
+              "DRENANDO": {
+                "color": "dark-yellow",
+                "index": 7
+              },
+              "FINALIZADO": {
+                "color": "dark-green",
+                "index": 4
+              },
+              "OPERANDO": {
+                "color": "dark-green",
+                "index": 3
+              },
+              "PARADO": {
+                "color": "dark-red",
+                "index": 0
+              },
+              "PREPARANDO": {
+                "color": "dark-yellow",
+                "index": 1
+              },
+              "SISTEMA EM MANUAL": {
+                "color": "dark-red",
+                "index": 5
+              },
+              "SISTEMA PRONTO": {
+                "color": "dark-green",
+                "index": 2
+              }
+            },
+            "type": "value"
+          },
+          {
+            "options": {
+              "match": "null",
+              "result": {
+                "color": "#969696",
+                "index": 8,
+                "text": "Em Implantação"
+              }
+            },
+            "type": "special"
+          }
+        ],
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            {
+              "color": "dark-red",
+              "value": null
+            },
+            {
+              "color": "red",
+              "value": 80
+            }
+          ]
+        },
+        "color": {
+          "fixedColor": "dark-green",
+          "mode": "thresholds"
+        },
+        "links": [
+          {
+            "targetBlank": true,
+            "title": "Bucharia ARN",
+            "url": "http://cmi.minervafoods.com:3000/d/BJFjgzx7k/bucharia?orgId=1&var-unidade=ARN&var-banco=Araguaina2&var-unidade_db=Araguaina2&var-unidade_db_mysql=ECOTRACE%20-%20ARN&var-url_unidade=%2Fd%2FLF3LxHuMz%2Fengenharia-unidades%3F&var-url_cmi=%2Fd%2FNpRzyQ_Gz%2Fminerva-cmi-abate-desossa-congelamento%3F"
+          }
+        ],
+        "unit": "short"
+      },
+      "overrides": []
+    },
+    "options": {
+      "reduceOptions": {
+        "values": true,
+        "calcs": [],
+        "fields": "/.*/"
+      },
+      "orientation": "horizontal",
+      "textMode": "auto",
+      "colorMode": "background",
+      "graphMode": "area",
+      "justifyMode": "auto",
+      "text": {
+        "valueSize": 24
+      }
+    },
+    "targets": [
+      {
+        "alias": "",
+        "datasource": {
+          "type": "mssql",
+          "uid": "zavTC70Gk"
+        },
+        "editorMode": "code",
+        "format": "table",
+        "rawQuery": true,
+        "rawSql": "SELECT TOP (1) [stsProcesso_TQA01] AS [TQA 01]\nFROM [db_automacao].[dbo].[tab_monitor_coz_bucho_ARN] WITH (NOLOCK)\nWHERE [E3TimeStamp] BETWEEN DATEADD(HOUR, -3,$__timeFrom()) AND DATEADD(HOUR, -3,$__timeTo())\nORDER BY [E3TimeStamp] DESC",
+        "refId": "A",
+        "sql": {
+          "columns": [
+            {
+              "parameters": [],
+              "type": "function"
+            }
+          ],
+          "groupBy": [
+            {
+              "property": {
+                "type": "string"
+              },
+              "type": "groupBy"
+            }
+          ],
+          "limit": 50
+        }
+      },
+      {
+        "alias": "",
+        "datasource": {
+          "type": "mssql",
+          "uid": "zavTC70Gk"
+        },
+        "editorMode": "code",
+        "format": "table",
+        "hide": false,
+        "rawQuery": true,
+        "rawSql": "SELECT TOP (1) [stsProcesso_TQR01] AS [TQR 01]\nFROM [db_automacao].[dbo].[tab_monitor_coz_bucho_ARN] WITH (NOLOCK)\nWHERE [E3TimeStamp] BETWEEN DATEADD(HOUR, -3,$__timeFrom()) AND DATEADD(HOUR, -3,$__timeTo())\nORDER BY [E3TimeStamp] DESC",
+        "refId": "B",
+        "sql": {
+          "columns": [
+            {
+              "parameters": [],
+              "type": "function"
+            }
+          ],
+          "groupBy": [
+            {
+              "property": {
+                "type": "string"
+              },
+              "type": "groupBy"
+            }
+          ],
+          "limit": 50
+        }
+      }
+    ]
+  }

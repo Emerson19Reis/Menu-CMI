@@ -7,13 +7,12 @@
 			margin: 0;
 			padding: 0;
 			font-family: Arial, sans-serif;
-            background-repeat: no-repeat;
+			background-repeat: no-repeat;
 			background-size: 980px 520px; 
 			margin: 100;
-            padding: 100;
+			padding: 100;
 			background-position: center;
 		}
-
 
 		#header {
 			background-color: #E84752;
@@ -25,17 +24,26 @@
 			font-family: Montserrat, sans-serif;
 			font-size: 20px;
 		}
-		#background-image {
-			background-image: url("https://imgur.com/MEFSseu.png");
-			background-repeat: no-repeat;
-			background-size: cover;	
-			position: absolute;
-			top: 50px;
-			left: 0;
-			width: 90%;
-			height: calc(100% - 50px);
-			z-index: -1;
-		}
+		
+		@keyframes background-animation {
+	0% { background-position: 0 0; }
+	100% { background-position: 100% 0; }
+}
+
+#background-image {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	width: 90%;
+	height: calc(100% - 50px);
+	z-index: -1;
+	animation: background-animation 30s linear infinite;
+	background-image: url("https://imgur.com/MEFSseu.png");
+	background-repeat: no-repeat;
+	background-size: cover;	
+}
+
+		
 		#menu {
 			position: fixed;
 			top: 0;
@@ -50,6 +58,7 @@
 			padding-top: 50px;
 			box-sizing: border-box;
 		}
+		
 		#menu a {
 			display: block;
 			width: 100%;
@@ -60,9 +69,11 @@
 			border-bottom: 1px solid #fff;
 			box-sizing: border-box;
 		}
+		
 		#menu a:hover {
 			background-color: #555;
 		}
+		
 		#logo {
 			position: absolute;
 			top: 10px;
@@ -75,74 +86,78 @@
 			background-position: center;
 			cursor: pointer;
 		}
+		
 		#content {
 			margin-right: 150px;
 			padding: 20px;
 		}
 
-        .dropdown {
-          position: relative;
-          display: inline-block;
-          margin-top: 10px; /* Ajusta a posição vertical do dropdown */
-        }
+		.dropdown {
+			position: relative;
+			display: inline-block;
+			margin-top: 10px; /* Ajusta a posição vertical do dropdown */
+		}
 
-        .dropbtn {
-          background-color: #E84752;
-          color: white;
-          padding: 10px;
-          font-size: 16px;
-          border: none;
-          cursor: pointer;
-		  
-        }
+		.dropbtn {
+			background-color: #E84752;
+			color: white;
+			padding: 10px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+		}
 
-        .dropdown-content {
-          display: none;
-          position: absolute;
-          background-color: #E84752;
-          min-width: 150px;
-          z-index: 1;
-          padding: 12px 0; /* Adiciona um espaçamento interno no dropdown */
-          left: 50%; /* Centraliza horizontalmente o dropdown */
-          transform: translateX(-50%); /* Centraliza horizontalmente o dropdown */
-        }
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #E84752;
+			min-width: 150px;
+			z-index: 1;
+			padding: 12px 0; /* Adiciona um espaçamento interno no dropdown */
+			left: 50%; /* Centraliza horizontalmente o dropdown */
+			transform: translateX(-50%); /* Centraliza horizontalmente o dropdown */
+		}
 
-        .dropdown-content a {
-          color: white;
-          padding: 10px 16px;
-          text-decoration: none;
-          display: block;
-          text-align: center; /* Centraliza o texto nos botões do dropdown */
-        }
+		.dropdown-content a {
+			color: white;
+			padding: 10px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: center; /* Centraliza o texto nos botões do dropdown */
+		}
 
-        .dropdown-content a:hover {
-          background-color: #555;
-        }
+		.dropdown-content a:hover {
+			background-color: #555;
+		}
 
-        .dropdown:hover .dropdown-content {
-          display: block;
-        }
-        #menu .dropdown button.dropbtn:hover {
-  background-color: #555;
-  width: 150px;
-}
-.flag-icon-AR {
-  width: 24px; /* Ajuste o tamanho da imagem conforme necessário */
-  height: 16px;
-  margin-right: 8px; /* Espaçamento entre a imagem e o texto */
-}
-.flag-icon-BR {
-  width: 24px; /* Ajuste o tamanho da imagem conforme necessário */
-  height: 16px;
-  margin-right: 40px ; /* Espaçamento entre a imagem e o texto */
-}
-.texto-botao {
-  font-size: 16px;
-  margin-left: 5px;
-  /* Outros estilos de texto, se necessário */
-}
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+		
+		#menu .dropdown button.dropbtn:hover {
+			background-color: #555;
+			width: 150px;
+		}
+		
+		.flag-icon-AR {
+			width: 24px; /* Ajuste o tamanho da imagem conforme necessário */
+			height: 16px;
+			margin-right: 8px; /* Espaçamento entre a imagem e o texto */
+		}
+		
+		.flag-icon-BR {
+			width: 24px; /* Ajuste o tamanho da imagem conforme necessário */
+			height: 16px;
+			margin-right: 40px ; /* Espaçamento entre a imagem e o texto */
+		}
+		
+		.texto-botao {
+			font-size: 16px;
+			margin-left: 5px;
+			/* Outros estilos de texto, se necessário */
+		}
 
-.button-position {
+		.button-position {
 			position: fixed;
 			top: -20px;
 			left: 10px;
@@ -154,104 +169,88 @@
 			font-size: 16px;
 			cursor: pointer;
 		}
-
-
 	</style>
-	</head>
-	<body>
-		<div id="header">
-			CMI - Centro de Monitoramento Industrial 
-		</div>
-		<div id="background-image"> 
-
-		
-		</div>
-		<div id="menu">
-			<div id="logo"></div>
-			<div class="dropdown">
-				<button class="dropbtn">
-					<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-argentina.png" alt="Bandeira da Argentina" class="flag-icon-AR">
-					<span class="texto-botao">Argentina</span>
-				</button>
-				<div class="dropdown-content">
-					<a href="#">Mobile</a>
-					<a href="#">CMI Desktop</a>
-					<a href="#">Qualidade</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">
-					<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-brasil.png" alt="Bandeira da Brasil" class="flag-icon-AR	">
-					<span class="texto-boto">Brasil &nbsp &nbsp &nbsp</span>
-					</button>
-				<div class="dropdown-content">
-					<a href="http://cmi.minervafoods.com:3000/d/Mwt3GO_7z/minerva-cmi-mobile?orgId=1&var-tempo_comparacao=1&var-unidade=ARN&var-banco=Araguaina2&var-unidade_db=Araguaina2&var-unidade_db_mysql=&var-id_energia=1021&var-link_EletroEstimulador=%2Fd%2FDDyExKuMk%2Fengenharia-unidade-eletroestimulador&var-link_acido_Latico=%2Fd%2F1fB4t0uGk%2Fengenharia-unidade-acido-latico&var-link_velocidade_linhas=%2Fd%2F4sBELluGz%2Fengenharia-unidade-velocidades-linhas&refresh=5m" target="
-					_blank">Mobile</a>
-					<a href="http://cmi.minervafoods.com:3000/d/NpRzyQ_Gz/minerva-cmi-desktop?orgId=1">CMI Desktop</a>
-					<a href="http://cmi.minervafoods.com:3000/d/FohmNHJVz/home-qualidade?orgId=1">Qualidade</a>
-					<a href="https://app.powerbi.com/groups/me/apps/5c32bb0e-c67d-4272-875a-3397ec2774ad/reports/8985861e-85fc-4b70-9619-16db196b357f/ReportSection?experience=power-bi"> CMI - N3</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">
-					
-					<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-colombia.png" alt="Bandeira da Colombia" class="flag-icon-AR	">
-					<span class="texto-boto">Colombia </span>
-
-					</button>
-				<div class="dropdown-content">
-					<a href="#">Mobile</a>
-					<a href="#">CMI Desktop</a>
-					<a href="#">Qualidade</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">
-
-					<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-paraguai.png" alt="Bandeira da Colombia" class="flag-icon-AR	">
-					<span class="texto-boto">Paraguai </span>
-
-				</button>
-				<div class="dropdown-content">
-					<a href="#">Mobile</a>
-					<a href="#">CMI Desktop</a>
-					<a href="#">Qualidade</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">
-					<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-uruguai.png" alt="Bandeira da Colombia" class="flag-icon-AR	">
-					<span class="texto-boto">Uruguai &nbsp </span>
-
-
-				</button>
-				<div class="dropdown-content">
-					<a href="#">Mobile</a>
-					<a href="#">CMI Desktop</a>
-					<a href="#">Qualidade</a>
-				</div>
+</head>
+<body>
+	<div id="header">
+		CMI - Centro de Monitoramento Industrial 
+	</div>
+	<div id="background-image"></div>
+	<div id="menu">
+		<div id="logo"></div>
+		<div class="dropdown">
+			<button class="dropbtn">
+				<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-argentina.png" alt="Bandeira da Argentina" class="flag-icon-AR">
+				<span class="texto-botao">Argentina</span>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Mobile</a>
+				<a href="#">CMI Desktop</a>
+				<a href="#">Qualidade</a>
 			</div>
 		</div>
-		<div id="content">
-			<!-- Conteúdo da página -->
+		<div class="dropdown">
+			<button class="dropbtn">
+				<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-brasil.png" alt="Bandeira da Brasil" class="flag-icon-AR	">
+				<span class="texto-boto">Brasil &nbsp &nbsp &nbsp</span>
+			</button>
+			<div class="dropdown-content">
+				<a href="http://cmi.minervafoods.com:3000/d/Mwt3GO_7z/minerva-cmi-mobile?orgId=1&var-tempo_comparacao=1&var-unidade=ARN&var-banco=Araguaina2&var-unidade_db=Araguaina2&var-unidade_db_mysql=&var-id_energia=1021&var-link_EletroEstimulador=%2Fd%2FDDyExKuMk%2Fengenharia-unidade-eletroestimulador&var-link_acido_Latico=%2Fd%2F1fB4t0uGk%2Fengenharia-unidade-acido-latico&var-link_velocidade_linhas=%2Fd%2F4sBELluGz%2Fengenharia-unidade-velocidades-linhas&refresh=5m" target="_blank">Mobile</a>
+				<a href="http://cmi.minervafoods.com:3000/d/NpRzyQ_Gz/minerva-cmi-desktop?orgId=1">CMI Desktop</a>
+				<a href="http://cmi.minervafoods.com:3000/d/FohmNHJVz/home-qualidade?orgId=1">Qualidade</a>
+				<a href="https://app.powerbi.com/groups/me/apps/5c32bb0e-c67d-4272-875a-3397ec2774ad/reports/8985861e-85fc-4b70-9619-16db196b357f/ReportSection?experience=power-bi"> CMI - N3</a>
+			</div>
 		</div>
+		<div class="dropdown">
+			<button class="dropbtn">
+				<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-colombia.png" alt="Bandeira da Colombia" class="flag-icon-AR	">
+				<span class="texto-boto">Colombia </span>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Mobile</a>
+				<a href="#">CMI Desktop</a>
+				<a href="#">Qualidade</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">
+				<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-paraguai.png" alt="Bandeira da Colombia" class="flag-icon-AR	">
+				<span class="texto-boto">Paraguai </span>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Mobile</a>
+				<a href="#">CMI Desktop</a>
+				<a href="#">Qualidade</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">
+				<img src="https://www.minervafoods.com/wp-content/uploads/2022/12/flag-uruguai.png" alt="Bandeira da Colombia" class="flag-icon-AR	">
+				<span class="texto-boto">Uruguai &nbsp </span>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Mobile</a>
+				<a href="#">CMI Desktop</a>
+				<a href="#">Qualidade</a>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		<!-- Conteúdo da página -->
+	</div>
 
-		<div class="button-position">
+	<div class="button-position">
 		<div class="dropdown">
 			<button class="dropbtn">
 				<img src="https://i.imgur.com/b6fswm3.png" alt="Bandeira da Colombia" class="flag-icon-AR	">
 				<span class="texto-boto">Traduzir &nbsp </span>
-
-
 			</button>
 			<div class="dropdown-content">
 				<a href="https://emerson19reis.github.io/Menu-CMI/menuingles.html">Inglês</a>
 				<a href="https://emerson19reis.github.io/Menu-CMI/menuespanhol.html">Espanhol</a>
-				<a href="#">Portugês</a>
+				<a href="#">Português</a>
 			</div>
-
 		</div>
-	</body>
-
-
-	</html>
+	</div>
+</body>
+</html>
